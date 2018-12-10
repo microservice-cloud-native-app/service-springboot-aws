@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      enabled: false # set false if config server not needed
+  discovery:
+    enabled: false
+  profiles:
+    active: test
+    

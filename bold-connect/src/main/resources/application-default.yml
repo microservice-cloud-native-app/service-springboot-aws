@@ -1,0 +1,29 @@
+spring:
+  session:
+    store-type: none
+# Set to false to see health details.
+endpoints:
+  health:
+    sensitive: false
+
+eureka:
+  client:
+    enabled: false # this will allow application to call load-balancer or other eureka instances
+    register-with-eureka: false # this will make sure not to register local dev instance with live eureka client
+  ccs:
+    serviceId: CCS
+  key:
+    serviceId: SERVICE-KEY
+
+ccp:
+  service:
+    auth:
+      filter:
+        enabled: false
+  sts:
+    jwt:
+      enabled: false
+  gemfire:
+    enable: false
+
+

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: bold-connect
+
+  cloud:
+    config:
+      uri: ${vcap.services.configServerURL.credentials.uri:http://user:password@dgn-fdn-p-configserver-dev1.cfapps-gt1-dev.nam.nsroot.net}
+      enabled: false
+    appId: bold-connect
+
+
+  profiles:
+    active: dev1, dev1-secure, default

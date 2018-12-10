@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bold-connect
+
+# Information that shows up in the /info endpoint
+info:
+  app:
+    name: bold-connect
+    version: 1.0.0
