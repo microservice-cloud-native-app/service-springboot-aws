@@ -2,6 +2,7 @@ package com.poc.boldconnect.config;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,15 +19,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @Profile({"dev1","dev2","dev3","default"})
 public class SwaggerApiDocumentationConfiguration {
+
+    public static final String BASE_PACKAGE = "com.poc.boldconnect";
     @Bean
     public Docket documentation() {
         return new Docket(DocumentationType.SWAGGER_2)
-          .select()
-            .apis(RequestHandlerSelectors.any())
-            .paths(regex("/service/.*"))
-            .build()
-          .pathMapping("/")
-          .apiInfo(metadata());
+                .groupName("BOLD API")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                .build()
+                .pathMapping("/")
+                .apiInfo(metadata());
     }
 
     @Bean

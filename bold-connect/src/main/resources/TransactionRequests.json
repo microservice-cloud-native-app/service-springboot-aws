@@ -1,0 +1,35 @@
+{
+  "transactions":[
+    {
+      "transactionId": 284136,
+      "userAccountId": 1001,
+      "accountId": 2560,
+      "accountCategoryType": "BANK",
+      "transactionAmount": 450.25,
+      "transactionCategoryCode": "18013000",
+      "transactionCategoryName": null,
+      "transactionDate": "2017-08-10",
+      "transactionType": "DEBIT",
+      "transactionMemoDesc": "Best Buy",
+      "transactionPostingDate": "2017-08-10",
+      "transactionStatus": "BILLED",
+      "transactionTime": null,
+      "externalTransactionRefId":"1234",
+      "externalAccountRefId" : "6789",
+      "merchant": {
+        "merchantId": 279,
+        "name": "Best Buy"
+      },
+      "transactionDayOfWeek": "THURSDAY",
+      "transactionCurrencyCode": "USD",
+      "discardTransactionFlag": "N",
+      "externalCategoryCode": "43",
+      "transactionClassificationCode": "SP",
+      "isDeleted": null,
+      "nwgCategoryFlag" : "N",
+      "dataProviderCode" : "YDL"
+    }
+  ],
+  "userAccountId": 1001,
+  "dataProviderCode": "YDL"
+}
