@@ -1,8 +1,10 @@
 package com.poc.boldconnect.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -21,6 +23,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.poc.boldconnect.Application;
+import org.apache.commons.io.IOUtils;
 
 
 public final class CommonUtils {
@@ -34,6 +37,14 @@ public final class CommonUtils {
             e.printStackTrace();
             return null;
         }
+    }  public static String getInputFromFileUsingStream(String filePath) {
+        InputStream resourceAsStream = Application.class.getClassLoader().getResourceAsStream(filePath);
+        try {
+           return IOUtils.toString(resourceAsStream, StandardCharsets.UTF_8.name());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private static Stream<String> getStreamFromFile(URI filePath) throws IOException {

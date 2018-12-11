@@ -38,7 +38,7 @@ public class TransactionController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
-        String json = CommonUtils.getInputFromFile("TransactionRequests.json");
+        String json = CommonUtils.getInputFromFileUsingStream("TransactionRequests.json");
         TransactionRequest transactionRequest = (TransactionRequest)CommonUtils.convertJSONToObject(json,TransactionRequest.class);
 
         if (null != transactionRequest) {

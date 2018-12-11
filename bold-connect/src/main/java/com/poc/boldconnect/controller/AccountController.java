@@ -39,7 +39,7 @@ public class AccountController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
-        String json = CommonUtils.getInputFromFile("AccountRequests.json");
+        String json = CommonUtils.getInputFromFileUsingStream("AccountRequests.json");
         final AccountRequest accountRequest = CommonUtils.convertJSONToObject(json, AccountRequest.class);
 
         if (null != accountRequest) {
