@@ -10,3 +10,33 @@ info:
   app:
     name: bold-connect
     version: 1.0.0
+
+
+logging:
+  level:
+    ROOT: INFO
+    com.poc.boldconnect: INFO
+    org.springframework:
+      web: ERROR
+      beans: ERROR
+      boot: ERROR
+    com.netflix:
+      discovery: ERROR
+      loadbalancer : ERROR
+
+
+
+logging:
+  level:
+    ROOT: INFO
+    com.citi.fintech.empower: DEBUG
+    org.springframework:
+      web: ERROR
+      beans: ERROR
+      boot: ERROR
+    com.netflix:
+      discovery: ERROR
+      loadbalancer : ERROR
+    com.citigroup.ccp: ERROR
+
+

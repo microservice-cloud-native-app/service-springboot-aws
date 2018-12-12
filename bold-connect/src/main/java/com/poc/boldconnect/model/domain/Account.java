@@ -23,7 +23,7 @@ public class Account {
     // ids
     @NotBlank
     @ApiModelProperty(required = true)
-    private int accountId;
+    private String accountId;
 
     
     @NotBlank
@@ -38,7 +38,7 @@ public class Account {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
-    private int userAccountId;
+    private String userAccountId;
 
     // balances
     @ApiModelProperty(required = true, notes = "This is deprecated.  Please use availableBalance, currentBalance fields")
