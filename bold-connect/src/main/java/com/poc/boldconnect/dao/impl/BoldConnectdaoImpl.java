@@ -32,9 +32,11 @@ public class BoldConnectdaoImpl implements BoldConnectDao {
     @Override
     public void saveAccounts(List<Account> accounts) {
 
-      Table table =  dynamoDB.getTable("Accounts");
-        for (Account account:accounts
-             ) {
+      LOG.info(" Save Accounts started");
+
+        Table table =  dynamoDB.getTable("Accounts");
+        for (Account account:accounts)
+            {
             Item item= new Item()
                     .withPrimaryKey("accountId",account.getAccountId())
                     .with("userAccountId",String.valueOf(account.getUserAccountId()))
@@ -52,9 +54,11 @@ public class BoldConnectdaoImpl implements BoldConnectDao {
                     .withNumber("currentBalance",account.getCurrentBalance());
 
             PutItemOutcome outcome = table.putItem(item);
-            LOG.info("Data saved in dynamoDb {}",outcome);
+            LOG.info("Data saved in dynamoDb outcome     {}",outcome);
 
         }
+
+        LOG.info(" Save Accounts end");
 
     }
 
