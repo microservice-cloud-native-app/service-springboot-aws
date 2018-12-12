@@ -468,7 +468,5 @@
       "favicon": null,
       "accountRefreshStatus" : "SUCCESS"
     }
-  ],
-  "userAccountId": 1,
-  "dataProviderCode": "YDL"
-}
+  ]
+ }

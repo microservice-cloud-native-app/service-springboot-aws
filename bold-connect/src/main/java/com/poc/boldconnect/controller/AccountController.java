@@ -1,8 +1,10 @@
 package com.poc.boldconnect.controller;
 
+import com.poc.boldconnect.dao.BoldConnectDao;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.request.AccountRequest;
 import com.poc.boldconnect.model.response.AccountResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.slf4j.Logger;
@@ -26,8 +28,13 @@ public class AccountController {
     public static final String RESOURCE_NAME = "/service/v1/boldConnect/accounts";
     public static final String UUID = "uuid";
 
+    private final BoldConnectDao boldConnectDao;
 
+    @Autowired
+    public AccountController(BoldConnectDao boldConnectDao) {
+        this.boldConnectDao = boldConnectDao;
 
+    }
 
     @ApiOperation(value = "Lookup an account", nickname = "accountLookup", response = Account.class,
             notes = "mock account data response ")
@@ -52,4 +59,6 @@ public class AccountController {
             return new ResponseEntity<>(errorResponse, responseHeaders, HttpStatus.NOT_FOUND);
         }
     }
+
+
 }
