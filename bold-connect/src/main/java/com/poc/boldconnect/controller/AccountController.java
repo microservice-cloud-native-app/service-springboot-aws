@@ -1,6 +1,7 @@
 package com.poc.boldconnect.controller;
 
-import com.poc.boldconnect.dao.BoldConnectDao;
+import com.poc.boldconnect.dao.AccountDao;
+import com.poc.boldconnect.exception.ClientSideException;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.request.AccountRequest;
 import com.poc.boldconnect.model.response.AccountResponse;
@@ -33,11 +34,11 @@ public class AccountController {
     public static final String RESOURCE_NAME = "/service/v1/boldConnect/accounts";
     public static final String UUID = "uuid";
 
-    private final BoldConnectDao boldConnectDao;
+    private final AccountDao accountDao;
 
     @Autowired
-    public AccountController(BoldConnectDao boldConnectDao) {
-        this.boldConnectDao = boldConnectDao;
+    public AccountController(AccountDao accountDao) {
+        this.accountDao = accountDao;
 
     }
 
@@ -45,18 +46,21 @@ public class AccountController {
             notes = "mock account data response ")
     @ApiResponses({ @ApiResponse(code = 200, message = "OK", response = AccountRequest.class), @ApiResponse(code = 404, message = "NOT_FOUND", response = ErrorResponse.class), })
     @RequestMapping(value = RESOURCE_NAME , method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<?> lookupAccount(@RequestHeader(value = "uuid", required = true) String uuid, @RequestParam(required = false) String accountNumberValue) {
+    public ResponseEntity<?> lookupAccount(@RequestHeader(value = "uuid", required = true) String uuid, @RequestHeader(required = true) String userAcctNumber) {
         LOG.debug("---  Beginning Action ---");
 
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
-        String json = CommonUtils.getInputFromFileUsingStream("AccountRequests.json");
-        final AccountRequest accountRequest = CommonUtils.convertJSONToObject(json, AccountRequest.class);
+        if(userAcctNumber==null || userAcctNumber.isEmpty()){
+            throw new ClientSideException("userAcctNumber is null or empty in header");
+        }
 
-        if (null != accountRequest) {
+        List<Account> accounts = accountDao.getAccounts(userAcctNumber);
+
+        if (null != accounts && !accounts.isEmpty()) {
             AccountResponse accountResponse = new AccountResponse();
-            accountResponse.setData(accountRequest.getAccounts());
+            accountResponse.setData(accounts);
             return new ResponseEntity<>(accountResponse, responseHeaders, HttpStatus.OK);
         } else {// TODO if some other error thrown handle it
             ErrorResponse errorResponse = new ErrorResponse();
@@ -72,20 +76,11 @@ public class AccountController {
     @RequestMapping(value = RESOURCE_NAME, method = RequestMethod.POST, produces = {
             MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> insertOrUpdateAccounts(@ApiParam(name = "uuid", value = "A 128 bit universally unique identifier (UUID) that you generate for every request and is used for tracking.", defaultValue = "f4b14e1c-0d80-11e7-93ae-92361f002671") @RequestHeader(value = "uuid") String uuid,
-                                                    @RequestBody @Valid AccountRequest request,
-                                                    @ApiParam(name = "empowerId", value = "empowerId", required = true) @RequestHeader(value = "empowerId", required = false) String empowerId,
-                                                    @ApiParam(name = "accessToken", value = "accessToken", defaultValue = "abbb4837-8343-418c-93d8-77a8519dff9e") @RequestHeader(value = "accessToken", required = false) String accessToken,
-                                                    @ApiParam(name = "businessCode", value = "business code ", defaultValue = "GCB") @RequestHeader(value = "businessCode", required = false) String businessCode,
-                                                    @ApiParam(name = "countryCode", value = "Country code, example US", defaultValue = "US") @RequestHeader(value = "countryCode", required = false) String countryCode,
-                                                    @ApiParam(name = "channelId", value = "channelId, example CNV", defaultValue = "CNV") @RequestHeader(value = "channelId", required = false) String channelId,
-                                                    @ApiParam(name = "Accept-Language", value = "Accept-Language, example en-US", defaultValue = "en-US") @RequestHeader(value = "Accept-Language", required = false) String acceptLanguage,
-                                                    @ApiParam(name = "Accept", value = "Accept, example application/json", defaultValue = "application/json") @RequestHeader(value = "Accept", required = false) String accept,
-                                                    @ApiParam(name = "Authorization", value = "Authorization", defaultValue = "some authorization token") @RequestHeader(value = "Authorization", required = false) String authorization,
-                                                    @ApiParam(name = "client_id", value = "client_id", defaultValue = "client_id") @RequestHeader(value = "client_id", required = false) String clientId,
-                                                    @ApiParam(name = "sid", value = "sid", defaultValue = "abbb4837-8343-418c-93d8-77a8519dff9e") @RequestHeader(value = "sid", required = false) String sid
+                                                    @RequestBody @Valid AccountRequest request
+
 
     ) {
-        LOG.info("---  Beginning Action --- insertOrUpdateAccounts for empowerId [{}] , UUID [{}]", empowerId, uuid);
+        LOG.info("---  Beginning Action --- insertOrUpdateAccounts for  UUID [{}]",  uuid);
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
@@ -93,8 +88,10 @@ public class AccountController {
         LOG.info("json = {} ", json);
 
         List<Account> accounts = request.getAccounts();
-        boldConnectDao.saveAccounts(accounts);
+        accountDao.saveAccounts(accounts);
         PersistAccountResponse persistAccountResponse = new PersistAccountResponse();
+        persistAccountResponse.setCode(200);
+        persistAccountResponse.setMessage("Data Save Successful");
         return new ResponseEntity<>(persistAccountResponse, responseHeaders, HttpStatus.OK);
 
     }

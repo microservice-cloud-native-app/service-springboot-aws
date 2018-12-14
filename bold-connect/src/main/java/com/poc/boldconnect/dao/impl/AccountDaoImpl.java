@@ -1,14 +1,9 @@
 package com.poc.boldconnect.dao.impl;
 
-import com.amazonaws.client.builder.AwsClientBuilder;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.*;
-import com.amazonaws.services.dynamodbv2.document.internal.IteratorSupport;
-import com.amazonaws.services.dynamodbv2.document.spec.GetItemSpec;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-import com.poc.boldconnect.dao.BoldConnectDao;
+import com.poc.boldconnect.dao.AccountDao;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.util.CommonUtils;
 import org.slf4j.Logger;
@@ -20,11 +15,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
+
+import static com.poc.boldconnect.util.CommonUtils.*;
 
 @Repository
-public class BoldConnectdaoImpl implements BoldConnectDao {
+public class AccountDaoImpl implements AccountDao {
 
-    private static Logger LOG = LoggerFactory.getLogger(BoldConnectdaoImpl.class);
+    private static Logger LOG = LoggerFactory.getLogger(AccountDaoImpl.class);
 
     @Autowired
     private DynamoDB dynamoDB;
@@ -38,17 +36,17 @@ public class BoldConnectdaoImpl implements BoldConnectDao {
         for (Account account:accounts)
             {
             Item item= new Item()
-                    .withPrimaryKey("accountId",account.getAccountId())
-                    .with("userAccountId",String.valueOf(account.getUserAccountId()))
+                    .withPrimaryKey("userAccountId",account.getUserAccountId())
+                    .with("accountId", UUID.randomUUID().toString())
                     .withString("externalAccountRefId",account.getExternalAccountRefId())
                     .withString("accountType",account.getAccountType())
                     .withString("accountStatus",account.getAccountStatus())
                     .withString("financialInstituteCode",account.getFinancialInstituteCode())
                     .withString("financialInstName",account.getFinancialInstName())
                     .withString("displayAccountNumber",account.getDisplayAccountNumber())
-                    .withString("createdDate", LocalDateTime.now().toString())
-                    .withString("modifiedDate",LocalDateTime.now().toString())
-                    .withString("currencyCode","USD")
+                    .withString("createdDate", formatDateTime(LocalDateTime.now()))
+                    .withString("modifiedDate", formatDateTime(LocalDateTime.now()))
+                    .withString("currencyCode",account.getCurrencyCode())
                     .withString("dataProviderCode",account.getDataProviderCode())
                     .withNumber("availableBalance",account.getAvailableBalance())
                     .withNumber("currentBalance",account.getCurrentBalance());
@@ -67,22 +65,28 @@ public class BoldConnectdaoImpl implements BoldConnectDao {
 
         Table table = dynamoDB.getTable("Accounts");
         QuerySpec spec = new QuerySpec()
-                        .withKeyConditionExpression("userAccountId = :v_userAcctId and accountStatus =:v_accountStatus")
-                        .withValueMap(new ValueMap()
-                                .withString(":v_userAcctId",userAccountId)
-                                .withString(":v_accountStatus","ACTIVE"))
-                        .withConsistentRead(true);
+                .withKeyConditionExpression("userAccountId = :v_userAcctId")
+                .withValueMap(new ValueMap()
+                        .withString(":v_userAcctId", userAccountId))
+                .withConsistentRead(true);
 
         List<Account> accounts = new ArrayList<>();
 
         ItemCollection<QueryOutcome> items = table.query(spec);
+
+        String data = null;
         Iterator<Item> iterator = items.iterator();
+
         while (iterator.hasNext()) {
-           LOG.info("Data fetched from dynamodb -----> {} ",iterator.next().toJSONPretty());
-           Account account = CommonUtils.convertJSONToObject(iterator.next().toJSON(), Account.class);
-           accounts.add(account);
+            data = iterator.next().toJSON();
+            LOG.info("Data fetched from dynamodb -----> {} ",data);
+            Account account = convertJSONToObject(data, Account.class);
+            LOG.info("account converted {}", account);
+            accounts.add(account);
+            data=null;
         }
 
+        LOG.info("size of accounts -----> {}", accounts != null ? accounts.size() : 0);
         return accounts;
     }
 }

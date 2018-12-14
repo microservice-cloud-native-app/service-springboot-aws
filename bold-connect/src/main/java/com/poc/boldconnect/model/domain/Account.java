@@ -1,5 +1,6 @@
 package com.poc.boldconnect.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -132,9 +133,11 @@ public class Account {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdDate = null;
 
     @ApiModelProperty(required = true)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime modifiedDate = null;
 
     private String lastUpdated;
@@ -161,6 +164,7 @@ public class Account {
     private String accountRefreshStatus;
     @Data
     @NoArgsConstructor
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public final static class Balance {
         @ApiModelProperty(required = true)
         private BigDecimal available;

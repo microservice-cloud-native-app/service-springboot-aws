@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.validation.constraints.Min;
@@ -19,17 +20,18 @@ import java.time.YearMonth;
  */
 @Data
 @ToString
+@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
 public class Transaction {
 
 	@ApiModelProperty(value = "Id of the transaction", required = true)
-	@Min(value = 1)
-	private Integer transactionId;
+	private String transactionId;
 
 	@ApiModelProperty(value = "user account id (empower id) of the transaction", required = true)
-	private Integer userAccountId;
+	private String userAccountId;
 
 	@ApiModelProperty(value = "account id associated with the transaction", required = true)
-	private Integer accountId;
+	private String accountId;
 
 	@ApiModelProperty(value = "Account Category Type of the transaction", required = true)
 	private String accountCategoryType;
@@ -105,10 +107,12 @@ public class Transaction {
 
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@ApiModelProperty(hidden = true)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime createdDate;
 
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@ApiModelProperty(hidden = true)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime modifiedDate;
 
 	@ApiModelProperty(value = "Transaction location ")
@@ -132,6 +136,7 @@ public class Transaction {
 
 	@Data
 	@JsonIgnoreProperties(ignoreUnknown = true)
+	@NoArgsConstructor
 	public static class Merchant {
 		@ApiModelProperty(value = "Citi Merchant id of the transaction")
 		private Integer merchantId;

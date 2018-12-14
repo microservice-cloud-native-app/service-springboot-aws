@@ -1,5 +1,6 @@
 package com.poc.boldconnect.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.Data;
  * Created by rd82846 on 11/25/2016.
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TransactionLocation {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private int locationId;
