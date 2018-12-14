@@ -39,11 +39,9 @@ public class Application {
     @Scope(value = "singleton")
     public DynamoDB dynamoDB(){
 
-       System.setProperty("aws.accessKeyId","AKIAJLL6PX456UCMFDNQ");
-       System.setProperty("aws.secretAccessKey","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");
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://dynamodb.us-east-1.amazonaws.com","us-east-1"))
-                .build();
+                                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://dynamodb.us-east-1.amazonaws.com","us-east-1"))
+                                .build();
 
         DynamoDB dynamoDB = new DynamoDB(client);
         return dynamoDB;
