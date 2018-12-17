@@ -28,9 +28,6 @@ public class Application {
     @Bean
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-//        ((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setConnectTimeout(30000);
-//        ((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setReadTimeout(30000);
-        //restTemplate.getInterceptors().add(new OutboundHttpRequestInterceptor());
         return restTemplate;
     }
 
@@ -40,8 +37,8 @@ public class Application {
     public DynamoDB dynamoDB(){
 
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://dynamodb.us-east-1.amazonaws.com","us-east-1"))
-                .build();
+                                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://dynamodb.us-east-1.amazonaws.com","us-east-1"))
+                                .build();
 
         DynamoDB dynamoDB = new DynamoDB(client);
         return dynamoDB;

@@ -94,4 +94,12 @@ public final class CommonUtils {
         mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss"));
         return mapper;
     }
+
+    public static String formatDateTime(LocalDateTime now) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
+        String formatDateTime = now.format(formatter);
+        return formatDateTime;
+    }
 }

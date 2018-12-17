@@ -15,12 +15,5 @@ import java.util.List;
 public class TransactionRequest {
     @ApiModelProperty(required = true)
     private List<Transaction> transactions;
-    @ApiModelProperty(required = true)
-    private String dataProviderCode;
-    @ApiModelProperty(required = true)
-    private Integer userAccountId;
-    @ApiModelProperty(required = true,hidden=true)
-    private Boolean persistPendingTransactions;
-    @ApiModelProperty(required = true,hidden=true)
-    private Boolean updateTransactions;
+
 }

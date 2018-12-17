@@ -16,9 +16,5 @@ import java.util.List;
 public class AccountRequest {
     @ApiModelProperty(required = true)
     private List<Account> accounts;
-    @NotNull
-    @ApiModelProperty(required = true)
-    private Integer userAccountId;
-    @ApiModelProperty(required = true)
-    private String dataProviderCode;
+
 }
