@@ -23,6 +23,7 @@ import static com.poc.boldconnect.util.CommonUtils.formatDateTime;
 @Repository
 public class TransactionDaoImpl implements TransactionDao {
 
+    public static final String TRAN = "tran#";
     private static Logger LOG = LoggerFactory.getLogger(TransactionDaoImpl.class);
 
     @Autowired
@@ -38,7 +39,7 @@ public class TransactionDaoImpl implements TransactionDao {
         {
             Item item= new Item()
                     .withPrimaryKey("userAccountId",String.valueOf(transaction.getUserAccountId()))
-                    .withString("transactionId", UUID.randomUUID().toString())
+                    .withString("transactionId", TRAN+UUID.randomUUID().toString())
                    .withString("accountId",transaction.getAccountId())
                     .withString("accountCategoryType",transaction.getAccountCategoryType())
                     .withNumber("transactionAmount",transaction.getTransactionAmount())
@@ -67,9 +68,10 @@ public class TransactionDaoImpl implements TransactionDao {
 
         Table table = dynamoDB.getTable("Transactions");
         QuerySpec spec = new QuerySpec()
-                .withKeyConditionExpression("userAccountId = :v_userAcctId")
+                .withKeyConditionExpression("userAccountId = :v_userAcctId and begins_with(transactionId, :v_transactionId)")
                 .withValueMap(new ValueMap()
-                        .withString(":v_userAcctId",userAccountId))
+                        .withString(":v_userAcctId",userAccountId)
+                        .withString(":v_transactionId", TRAN))
                 .withConsistentRead(true);
 
         List<Transaction> txns = new ArrayList<>();

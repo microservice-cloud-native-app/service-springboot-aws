@@ -9,4 +9,6 @@ public interface AccountDao {
      void saveAccounts(List<Account> accounts);
 
      List<Account> getAccounts(String userAccountId);
+
+     void updateAccounts(List<Account> accounts);
 }
