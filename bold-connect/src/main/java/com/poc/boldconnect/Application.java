@@ -28,9 +28,6 @@ public class Application {
     @Bean
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-//        ((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setConnectTimeout(30000);
-//        ((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setReadTimeout(30000);
-        //restTemplate.getInterceptors().add(new OutboundHttpRequestInterceptor());
         return restTemplate;
     }
 
