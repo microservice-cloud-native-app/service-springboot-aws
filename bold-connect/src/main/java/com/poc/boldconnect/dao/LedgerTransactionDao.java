@@ -5,7 +5,7 @@ import com.poc.boldconnect.model.domain.Transaction;
 
 import java.util.List;
 
-public interface TransactionDao {
+public interface LedgerTransactionDao {
 
     void saveTransactions(List<Transaction> accounts);
 

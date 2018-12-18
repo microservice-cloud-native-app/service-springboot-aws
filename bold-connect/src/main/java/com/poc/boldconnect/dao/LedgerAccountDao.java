@@ -4,7 +4,7 @@ import com.poc.boldconnect.model.domain.Account;
 
 import java.util.List;
 
-public interface AccountDao {
+public interface LedgerAccountDao {
 
      void saveAccounts(List<Account> accounts);
 

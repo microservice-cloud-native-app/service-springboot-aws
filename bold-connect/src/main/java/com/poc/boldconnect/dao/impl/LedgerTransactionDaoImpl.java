@@ -3,8 +3,7 @@ package com.poc.boldconnect.dao.impl;
 import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-import com.poc.boldconnect.dao.TransactionDao;
-import com.poc.boldconnect.model.domain.Account;
+import com.poc.boldconnect.dao.LedgerTransactionDao;
 import com.poc.boldconnect.model.domain.Transaction;
 import com.poc.boldconnect.util.CommonUtils;
 import org.slf4j.Logger;
@@ -21,10 +20,10 @@ import java.util.UUID;
 import static com.poc.boldconnect.util.CommonUtils.formatDateTime;
 
 @Repository
-public class TransactionDaoImpl implements TransactionDao {
+public class LedgerTransactionDaoImpl implements LedgerTransactionDao {
 
     public static final String TRAN = "tran#";
-    private static Logger LOG = LoggerFactory.getLogger(TransactionDaoImpl.class);
+    private static Logger LOG = LoggerFactory.getLogger(LedgerTransactionDaoImpl.class);
 
     @Autowired
     private DynamoDB dynamoDB;

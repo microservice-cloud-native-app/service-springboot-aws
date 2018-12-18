@@ -1,6 +1,7 @@
 package com.poc.boldconnect.controller;
 
-import com.poc.boldconnect.dao.AccountDao;
+import com.poc.boldconnect.dao.LedgerAccountDao;
+import com.poc.boldconnect.delegate.LegerAccountDelegate;
 import com.poc.boldconnect.exception.ClientSideException;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.request.AccountRequest;
@@ -25,6 +26,7 @@ import com.poc.boldconnect.util.CommonUtils;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -34,11 +36,11 @@ public class LedgerAccountController {
     public static final String RESOURCE_NAME = "/service/v1/boldConnect/accounts";
     public static final String UUID = "uuid";
 
-    private final AccountDao accountDao;
+    private final LegerAccountDelegate accountDelegate;
 
     @Autowired
-    public LedgerAccountController(AccountDao accountDao) {
-        this.accountDao = accountDao;
+    public LedgerAccountController(LegerAccountDelegate accountDelegate) {
+        this.accountDelegate = accountDelegate;
 
     }
 
@@ -46,27 +48,17 @@ public class LedgerAccountController {
             notes = "mock account data response ")
     @ApiResponses({ @ApiResponse(code = 200, message = "OK", response = AccountRequest.class), @ApiResponse(code = 404, message = "NOT_FOUND", response = ErrorResponse.class), })
     @RequestMapping(value = RESOURCE_NAME , method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<?> lookupAccount(@RequestHeader(value = "uuid", required = true) String uuid, @RequestHeader(required = true) String userAcctNumber) {
+    public ResponseEntity<?> lookupAccount(@RequestHeader(value = "uuid", required = true) String uuid, @RequestHeader(required = true) String userAcctId) {
         LOG.debug("---  Beginning Action ---");
 
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
-        if(userAcctNumber==null || userAcctNumber.isEmpty()){
+        if(userAcctId==null || userAcctId.isEmpty()){
             throw new ClientSideException("userAcctNumber is null or empty in header");
         }
 
-        List<Account> accounts = accountDao.getAccounts(userAcctNumber);
-
-        if (null != accounts && !accounts.isEmpty()) {
-            AccountResponse accountResponse = new AccountResponse();
-            accountResponse.setData(accounts);
-            return new ResponseEntity<>(accountResponse, responseHeaders, HttpStatus.OK);
-        } else {// TODO if some other error thrown handle it
-            ErrorResponse errorResponse = new ErrorResponse();
-            errorResponse.setMessage("Look on message properties file and global exception file for error binding");
-            return new ResponseEntity<>(errorResponse, responseHeaders, HttpStatus.NOT_FOUND);
-        }
+        return accountDelegate.fetchAccounts(userAcctId,responseHeaders);
     }
 
     @ApiOperation(value = "Save account data ", nickname = "insertOrUpdateAccounts", response = PersistAccountResponse.class)
@@ -76,11 +68,11 @@ public class LedgerAccountController {
     @RequestMapping(value = RESOURCE_NAME, method = RequestMethod.POST, produces = {
             MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> insertOrUpdateAccounts(@ApiParam(name = "uuid", value = "A 128 bit universally unique identifier (UUID) that you generate for every request and is used for tracking.", defaultValue = "f4b14e1c-0d80-11e7-93ae-92361f002671") @RequestHeader(value = "uuid") String uuid,
-                                                    @RequestBody @Valid AccountRequest request
+                                                    @RequestBody @Valid AccountRequest request,@RequestHeader(required = true) String userAcctId
 
 
     ) {
-        LOG.info("---  Beginning Action --- insertOrUpdateAccounts for  UUID [{}]",  uuid);
+        LOG.info("---  Beginning Action --- insertOrUpdateAccounts for  UUID [{}]", uuid);
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(UUID, uuid);
 
@@ -88,11 +80,16 @@ public class LedgerAccountController {
         LOG.info("json = {} ", json);
 
         List<Account> accounts = request.getAccounts();
-        accountDao.saveAccounts(accounts);
-        PersistAccountResponse persistAccountResponse = new PersistAccountResponse();
-        persistAccountResponse.setCode(200);
-        persistAccountResponse.setMessage("Data Save Successful");
-        return new ResponseEntity<>(persistAccountResponse, responseHeaders, HttpStatus.OK);
+        List<Account> collectAccts = null;
+        if (accounts != null) {
+
+            collectAccts = accounts.stream().filter(account -> userAcctId.equals(account.getUserAccountId())).collect(Collectors.toList());
+            if (collectAccts == null || collectAccts.isEmpty()) {
+                throw new ClientSideException("Please check your input. Header in input and payload should match");
+            }
+        }
+
+        return accountDelegate.saveAccounts(collectAccts, responseHeaders);
 
     }
 

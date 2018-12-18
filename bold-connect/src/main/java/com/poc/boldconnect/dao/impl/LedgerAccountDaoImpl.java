@@ -3,11 +3,9 @@ package com.poc.boldconnect.dao.impl;
 import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.PutItemSpec;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
-import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-import com.poc.boldconnect.dao.AccountDao;
+import com.poc.boldconnect.dao.LedgerAccountDao;
 import com.poc.boldconnect.model.domain.Account;
-import com.poc.boldconnect.util.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +17,10 @@ import java.util.*;
 import static com.poc.boldconnect.util.CommonUtils.*;
 
 @Repository
-public class AccountDaoImpl implements AccountDao {
+public class LedgerAccountDaoImpl implements LedgerAccountDao {
 
     public static final String ACCT = "acct#";
-    private static Logger LOG = LoggerFactory.getLogger(AccountDaoImpl.class);
+    private static Logger LOG = LoggerFactory.getLogger(LedgerAccountDaoImpl.class);
 
     @Autowired
     private DynamoDB dynamoDB;
