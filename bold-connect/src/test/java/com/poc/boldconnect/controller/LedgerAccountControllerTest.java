@@ -15,11 +15,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AccountControllerTest {
+public class LedgerAccountControllerTest {
  private MockMvc mockMvc;
 
     @Autowired
-    private AccountController serviceController;
+    private LedgerAccountController serviceController;
 
     @Autowired
     private GlobalExceptionHandler globalExceptionHandler;

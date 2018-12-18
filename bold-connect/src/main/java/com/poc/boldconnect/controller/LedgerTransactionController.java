@@ -2,11 +2,8 @@ package com.poc.boldconnect.controller;
 
 import com.poc.boldconnect.dao.TransactionDao;
 import com.poc.boldconnect.exception.ClientSideException;
-import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.domain.Transaction;
-import com.poc.boldconnect.model.request.AccountRequest;
 import com.poc.boldconnect.model.request.TransactionRequest;
-import com.poc.boldconnect.model.response.AccountResponse;
 import com.poc.boldconnect.model.response.ErrorResponse;
 import com.poc.boldconnect.model.response.PersistTransactionResponse;
 import com.poc.boldconnect.model.response.TransactionResponse;
@@ -24,23 +21,21 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 
 @RestController
-public class TransactionController {
+public class LedgerTransactionController {
 
 
-    private static Logger LOG = LoggerFactory.getLogger(TransactionController.class);
+    private static Logger LOG = LoggerFactory.getLogger(LedgerTransactionController.class);
     public static final String RESOURCE_NAME = "/service/v1/boldConnect/transactions";
     public static final String UUID = "uuid";
 
     private final TransactionDao transactionDao;
 
     @Autowired
-    public TransactionController(TransactionDao transactionDao) {
+    public LedgerTransactionController(TransactionDao transactionDao) {
         this.transactionDao = transactionDao;
     }
 

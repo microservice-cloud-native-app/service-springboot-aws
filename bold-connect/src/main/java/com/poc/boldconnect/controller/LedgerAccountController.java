@@ -28,16 +28,16 @@ import java.util.List;
 
 
 @RestController
-public class AccountController {
+public class LedgerAccountController {
 
-    private static Logger LOG = LoggerFactory.getLogger(AccountController.class);
+    private static Logger LOG = LoggerFactory.getLogger(LedgerAccountController.class);
     public static final String RESOURCE_NAME = "/service/v1/boldConnect/accounts";
     public static final String UUID = "uuid";
 
     private final AccountDao accountDao;
 
     @Autowired
-    public AccountController(AccountDao accountDao) {
+    public LedgerAccountController(AccountDao accountDao) {
         this.accountDao = accountDao;
 
     }
