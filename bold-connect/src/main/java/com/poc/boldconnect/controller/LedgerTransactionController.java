@@ -46,7 +46,8 @@ public class LedgerTransactionController {
             notes = "mock transaction data response ")
     @ApiResponses({ @ApiResponse(code = 200, message = "OK", response = TransactionRequest.class), @ApiResponse(code = 404, message = "NOT_FOUND", response = ErrorResponse.class), })
     @RequestMapping(value = RESOURCE_NAME , method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<?> lookupTransactions(@RequestHeader(value = "uuid", required = true) String uuid, @RequestHeader(required = true) String userAcctId) {
+    public ResponseEntity<?> lookupTransactions(@RequestHeader(value = "uuid", required = true) String uuid,
+                                                @RequestHeader(required = true) String userAcctId) {
         LOG.debug("---  Beginning Action ---");
 
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -66,7 +67,7 @@ public class LedgerTransactionController {
     public ResponseEntity<?> saveTransactions(@ApiParam(name = "uuid", value = "A 128 bit universally unique identifier (UUID) that you generate for every request and is used for tracking.", defaultValue = "f4b14e1c-0d80-11e7-93ae-92361f002671")
                                                   @RequestHeader(value = "uuid", required = true) String uuid,
                                                   @RequestBody TransactionRequest transactionRequest,
-                                              @RequestHeader(required = true) String userAcctId) {
+                                               @RequestHeader(required = true) String userAcctId) {
         LOG.debug("---  Beginning Action ---");
 
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -78,9 +79,9 @@ public class LedgerTransactionController {
 
         List<Transaction> txns = transactionRequest.getTransactions();
         List<Transaction> transactions = null;
-        if (transactions != null) {
+        if (txns != null) {
 
-            transactions = transactions.stream().filter(transaction -> userAcctId.equals(transaction.getUserAccountId())).collect(Collectors.toList());
+            transactions = txns.stream().filter(transaction -> userAcctId.equals(transaction.getUserAccountId())).collect(Collectors.toList());
             if (transactions == null || transactions.isEmpty()) {
                 throw new ClientSideException("Please check your input. Header in input and payload should match");
             }

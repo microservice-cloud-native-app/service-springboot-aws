@@ -1,11 +1,13 @@
 {
-  "id":"ae123dfdw",
-  "name":"Kid Doe",
-  "Image_url" :"http://google.com",
-  "acct_last_four":"XXXX-6730",
-  "available_balance":1500,
-  "spend":350,
-  "save":250,
-  "give" :200,
-  "earn" :50
+  "accounts": [{
+    "id": "ae123dfdw",
+    "name": "Kid Doe",
+    "Image_url": "http://google.com",
+    "acct_last_four": "XXXX-6730",
+    "available_balance": 1500,
+    "spend": 350,
+    "save": 250,
+    "give": 200,
+    "earn": 50
+  }]
 }
