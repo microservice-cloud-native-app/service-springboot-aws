@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: bold-connect
+
+#  profiles:
+#    active: dev1, dev1-secure, default

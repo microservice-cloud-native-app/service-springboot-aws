@@ -1,0 +1,36 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: bold-connect
+  profiles:
+    active: test
+  session:
+    store-type: none
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  cloud:
+    discovery:
+      enabled: false
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+endpoints:
+  heapdump:
+    enabled: false
+    path: test
+  logfile:
+    enabled: false
+
+
+ccp:
+  sts:
+    jwt:
+      enabled: false
+  gemfire:
+    enable: false

@@ -1,0 +1,26 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: bold-connect
+
+# Information that shows up in the /info endpoint
+info:
+  app:
+    name: bold-connect
+    version: 1.0.0
+
+
+logging:
+  level:
+    ROOT: INFO
+    com.poc.boldconnect: INFO
+    org.springframework:
+      web: ERROR
+      beans: ERROR
+      boot: ERROR
+    com.netflix:
+      discovery: ERROR
+      loadbalancer : ERROR
+
