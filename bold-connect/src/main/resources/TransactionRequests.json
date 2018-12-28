@@ -1,0 +1,22 @@
+{
+  "transactions":[
+    {
+      "userAccountId": "1001",
+      "transactionId": "284136",
+      "accountId": "2560",
+      "accountCategoryType": "BANK",
+      "transactionAmount": 450.25,
+      "transactionDate": "2017-08-10",
+      "transactionType": "DEBIT",
+      "transactionMemoDesc": "Best Buy",
+      "transactionPostingDate": "2017-08-10",
+      "transactionStatus": "BILLED",
+      "externalTransactionRefId":"1234",
+      "externalAccountRefId" : "6789",
+      "transactionCurrencyCode": "USD",
+      "dataProviderCode" : "YDL"
+
+    }
+  ]
+
+}

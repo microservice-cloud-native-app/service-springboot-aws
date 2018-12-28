@@ -1,0 +1,20 @@
+{
+  "accounts": [{
+    "externalAccountRefId": "10458683",
+    "externalAccountGroupRefId": "10208380",
+    "userAccountId": "1",
+    "availableBalance": 65454.78,
+    "currentBalance": 9044.78,
+    "accountType": "SAVINGS",
+    "accountStatus": "ACTIVE",
+    "countryCode": "US",
+    "financialInstituteCode": "2441139",
+    "financialInstName": "Dummy Site",
+    "accountTitleName": "TESTDATA1",
+    "displayAccountNumber": "503-5623xxx",
+    "lastUpdated": "2018-12-03T17:05:44Z",
+    "dataProviderCode": "CITI",
+    "currencyCode": "USD",
+    "accountRefreshStatus": "SUCCESS"
+  }]
+}
