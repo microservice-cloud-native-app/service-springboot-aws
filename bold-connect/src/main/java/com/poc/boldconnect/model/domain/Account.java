@@ -41,16 +41,7 @@ public class Account {
     @ApiModelProperty(required = true, hidden = true)
     private String userAccountId;
 
-    // balances
-    @ApiModelProperty(required = true, notes = "This is deprecated.  Please use availableBalance, currentBalance fields")
-    @Deprecated
-    private Balance balance;
 
-    @ApiModelProperty(required = true, notes = "This is deprecated. Please use accountNumber, accountName fields")
-    @Deprecated
-    private Meta meta;
-
-    // balances
     // investment account
     @ApiModelProperty("cash balance for investment accounts")
     private BigDecimal cash;
@@ -111,21 +102,23 @@ public class Account {
     @ApiModelProperty(required = true)
     private String countryCode;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
     private String financialInstituteCode;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
     private String financialInstName;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
+
+
     @ApiModelProperty(required = true, hidden = true)
     private String accountTitleName;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
     private String displayAccountNumber;
@@ -142,12 +135,16 @@ public class Account {
 
     private String lastUpdated;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     @NotBlank
-    @ApiModelProperty(required = true, hidden = true)
+    @ApiModelProperty(required = true)
     private String dataProviderCode;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
+
+
+
+
     @NotBlank
     @ApiModelProperty(required = true, hidden = true)
     private String currencyCode;
@@ -160,31 +157,7 @@ public class Account {
     @ApiModelProperty(value = "Favicon Url of the financial Instituition associated with the account",  hidden = true)
     private String favicon;
 
-    @ApiModelProperty(value = "This is the account Refresh Status. Coming from the 3rd party Aggregator ",allowableValues = "SUCCESS,CREDENTIAL_CHANGED, UPDATE_ERROR,CREDENTIAL_EXPIRED,ACCOUNT_NOT_FOUND,GENERIC_ERROR,LOCKED,REPORTED_CLOSED")
-    private String accountRefreshStatus;
-    @Data
-    @NoArgsConstructor
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public final static class Balance {
-        @ApiModelProperty(required = true)
-        private BigDecimal available;
-        @ApiModelProperty(required = true)
-        private BigDecimal current;
-    }
-
-    @Data
-    @NoArgsConstructor
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public final static class Meta {
-        private BigDecimal limit;
-        @ApiModelProperty(required = true)
-        private String name;
-        @ApiModelProperty(required = true)
-        private String number;
 
 
-    }
-    @ApiModelProperty("This tells us whether the account alreay exists ")
-    private Boolean accountAlreadyExists;
 
 }

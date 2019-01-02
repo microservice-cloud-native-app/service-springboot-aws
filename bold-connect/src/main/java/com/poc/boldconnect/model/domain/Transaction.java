@@ -153,7 +153,6 @@ public class Transaction {
 	@ApiModelProperty(value = "This is the transaction Classification Code",allowableValues = "SP,IN,NL")
 	private String transactionClassificationCode;
 
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@ApiModelProperty(hidden = true)
 	private String dataProviderCode;
 
