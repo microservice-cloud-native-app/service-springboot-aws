@@ -1,0 +1,18 @@
+{
+  "transactions": [{
+    "userAccountId": "1",
+    "accountId": "4da56eb4-1fd9-484e-8fa2-d48c89c25e1d",
+    "accountCategoryType": "BANK",
+    "transactionAmount": 450.25,
+    "transactionDate": "2018-08-10",
+    "transactionType": "DEBIT",
+    "transactionMemoDesc": "Best Buy",
+    "transactionPostingDate": "2018-08-10",
+    "transactionStatus": "BILLED",
+    "externalTransactionRefId": "1234",
+    "externalAccountRefId": "6789",
+    "transactionCurrencyCode": "USD",
+    "dataProviderCode": "CITI"
+  }]
+
+}

@@ -1,0 +1,16 @@
+{
+  "financialInstName" : "Dummy Site",
+  "dataProviderCode" : "CITI",
+  "currentBalance" : 9044.78,
+  "accountType" : "SAVINGS",
+  "financialInstituteCode" : "2441139",
+  "availableBalance" : 65454.78,
+  "accountStatus" : "ACTIVE",
+  "accountId" : "c851e028-2b10-4ac5-961c-6cc080f740cd",
+  "externalAccountRefId" : "10458683",
+  "createdDate" : "2018-12-14T18:37:27",
+  "userAccountId" : "1",
+  "modifiedDate" : "2018-12-14T18:37:27",
+  "displayAccountNumber" : "503-5623xxx",
+  "currencyCode" : "USD"
+}
