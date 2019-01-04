@@ -1,8 +1,8 @@
 package com.poc.boldconnect.model.response;
 
-import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 
 @Data

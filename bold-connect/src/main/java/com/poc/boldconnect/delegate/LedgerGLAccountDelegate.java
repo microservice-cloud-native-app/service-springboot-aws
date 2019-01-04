@@ -1,6 +1,5 @@
 package com.poc.boldconnect.delegate;
 
-import com.poc.boldconnect.model.domain.GLAccount;
 import com.poc.boldconnect.model.domain.GLAccounts;
 import com.poc.boldconnect.model.response.GLAccountResponse;
 import com.poc.boldconnect.util.CommonUtils;

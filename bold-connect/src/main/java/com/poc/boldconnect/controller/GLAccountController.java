@@ -1,10 +1,8 @@
 package com.poc.boldconnect.controller;
 
 import com.poc.boldconnect.delegate.LedgerGLAccountDelegate;
-import com.poc.boldconnect.delegate.LedgerTransactionDelegate;
 import com.poc.boldconnect.exception.ClientSideException;
 import com.poc.boldconnect.model.domain.GLAccount;
-import com.poc.boldconnect.model.request.TransactionRequest;
 import com.poc.boldconnect.model.response.ErrorResponse;
 import com.poc.boldconnect.model.response.GLAccountResponse;
 import io.swagger.annotations.ApiOperation;

@@ -1,14 +1,10 @@
 package com.poc.boldconnect.controller;
 
-import com.poc.boldconnect.dao.LedgerTransactionDao;
 import com.poc.boldconnect.delegate.LedgerTransactionDelegate;
 import com.poc.boldconnect.exception.ClientSideException;
-import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.domain.Transaction;
 import com.poc.boldconnect.model.request.TransactionRequest;
 import com.poc.boldconnect.model.response.ErrorResponse;
-import com.poc.boldconnect.model.response.PersistTransactionResponse;
-import com.poc.boldconnect.model.response.TransactionResponse;
 import com.poc.boldconnect.util.CommonUtils;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

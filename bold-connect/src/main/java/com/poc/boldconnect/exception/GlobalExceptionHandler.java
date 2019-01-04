@@ -1,5 +1,6 @@
 package com.poc.boldconnect.exception;
 
+import com.poc.boldconnect.model.response.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import com.poc.boldconnect.model.response.ErrorResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

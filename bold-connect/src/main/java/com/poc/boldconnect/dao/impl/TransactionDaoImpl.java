@@ -4,7 +4,6 @@ import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.poc.boldconnect.dao.TransactionDao;
-import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.domain.Transaction;
 import com.poc.boldconnect.util.CommonUtils;
 import org.slf4j.Logger;
