@@ -1,0 +1,266 @@
+{
+  "customer": {
+    "bankCustomer": {
+      "baseCin": "3324",
+      "cin": "001",
+      "customerId": "913XXXXXXX",
+      "customerSinceDate": "20170120",
+      "customerCategoryType": "BUSINESS",
+      "customerSegment": "CITI_BANK",
+      "customerStatus": "ACTIVE",
+      "fullName": "Marc Carlo",
+      "firstName": "Marc",
+      "lastName": "Carlo",
+      "middleName": "david",
+      "localName": "Rick",
+      "title": "Mr",
+      "suffix": "Jr",
+      "maidenName": "PAUL",
+      "thirdPartyDataSharingIndicator": "Yes",
+      "housingOwnershipType": "Own",
+      "annualIncome": "100000",
+      "annualIncomeUpdateDate": "20170120",
+      "ipbCustomerFlag": true,
+      "gebCustomerFlag": true,
+      "promotionalOfferFlag": true,
+      "citiKYC": "123456789",
+      "primarySIC": "7948",
+      "incomeDetails": [
+        {
+          "incomeAmount": "100000",
+          "incomeSource": "",
+          "incomeFrequencyCode": "Annual"
+        }
+      ],
+      "identificationDocumentDetails": [
+        {
+          "documentIdType": "PHOTO CANADIAN DRIVER'S LICENSE",
+          "documentId": "123456789",
+          "documentIssueCountry": "US",
+          "documentIdIssueDate": "20170120",
+          "documentIdExpiryDate": "20180120"
+        }
+      ],
+      "customerPreferences": {
+        "prefferedRmLanguageCode": "English",
+        "prefferedVoiceLanguageCode": "Hungarian",
+        "prefferedOthersLanguageCode": "Hungarian",
+        "prefferedMailLanguageCode": "Hungarian"
+      },
+      "taxIdGroup": {
+        "taxId": "1234567890",
+        "taxIdType": "SSN",
+        "taxIdCertifyFlag": "true"
+      },
+      "email": [
+        {
+          "emailAddress": "x@abc.com",
+          "emailStatus": "Active",
+          "lastUpdatedDate": "2014-07-09",
+          "preferenceType": "PRIMARY"
+        }
+      ],
+      "phone": [
+        {
+          "areaCode": "954",
+          "countryCallingCode": "1",
+          "exchangeNumber": "2312",
+          "extension": "123",
+          "fullPhoneNumber": "123456789",
+          "lastUpdatedDate": "2014-02-13",
+          "localNumber": "002",
+          "phoneType": "CELL",
+          "verificationStatusIndicator": "1",
+          "preferenceType": "PRIMARY",
+          "phoneConsent": "J",
+          "verificationCode": "1",
+          "unlistedPhoneIndicator": "Unlisted"
+        }
+      ],
+      "address": [
+        {
+          "streetNumber": "123",
+          "streetName": "Avenida Patrai",
+          "buildingName": "C",
+          "unitNumber": "5",
+          "addressType": "MAILING",
+          "city": "Irving",
+          "countryCode": "02",
+          "countryName": "USA",
+          "lastUpdatedDate": "2014-07-09",
+          "postalCode": "12356789",
+          "state": "Texas",
+          "addressId": "12345",
+          "postalBoxNumber": "12345",
+          "careOf": "John Doe",
+          "internalLocationNumber": "12345",
+          "startDate": "20161112",
+          "endDate": "20171112"
+        }
+      ],
+      "debitCardDetails": [
+        {
+          "cardPackageIndicator": "Blue"
+        }
+      ],
+      "employmentDetails": [
+        {
+          "employmentStatus": "FULL_TIME",
+          "employerName": "Max",
+          "employmentStartDate": "01012006",
+          "employmentEndDate": "02022008",
+          "annualBaseSalaryAmount": "1234.5",
+          "jobDescription": "VP",
+          "jobTitle": "",
+          "globalEmployeeId": "ab12345",
+          "employeeLevel": "Officer Employee",
+          "address": {
+            "streetNumber": "123",
+            "streetName": "Avenida Patrai",
+            "buildingName": "C",
+            "unitNumber": "5",
+            "addressType": "MAILING",
+            "city": "Irving",
+            "countryCode": "02",
+            "countryName": "USA",
+            "lastUpdatedDate": "2014-07-09",
+            "postalCode": "12356789",
+            "state": "Texas",
+            "addressId": "12345",
+            "postalBoxNumber": "12345",
+            "careOf": "John Doe",
+            "internalLocationNumber": "12345",
+            "startDate": "20161112",
+            "endDate": "20171112"
+          }
+        }
+      ],
+      "customerDemographics": {
+        "citizenshipCountry": "AB",
+        "citizenshipStatus": "N",
+        "dateOfBirth": "25021984",
+        "dependentCount": "2",
+        "accountPassword": "samplename",
+        "maritalStatus": "Married",
+        "countryOfBirth": "India",
+        "seniorPublicFigureIndicator": "True",
+        "permanentResidencyFlag": "true"
+      },
+      "agent": [
+        {
+          "agentId": "20075",
+          "teamId": "3324",
+          "teamName": "ABC",
+          "agentAvatar": "Agent Avatar",
+          "agentRole": "CPCRM",
+          "firstName": "Marc",
+          "lastName": "Carlo",
+          "displayName": "Marc Carlo",
+          "preferredName": "Carlo",
+          "agentTypeCode": "",
+          "designation": "CFA",
+          "biography": "biography",
+          "biographyAvailableFlag": "true",
+          "phoneNumber": "123456789",
+          "emailAddress": "a@abc.com",
+          "subAgent": {
+            "agentType": "",
+            "firstName": "a@abc.com",
+            "lastName": "",
+            "emailAddress": "a@abc.com",
+            "aoSOEID": ""
+          }
+        }
+      ],
+      "responseCode": "",
+      "responseText": "",
+      "rmEngagementMode": ""
+    },
+    "creditCardCustomer": {
+      "cardsDetails": [
+        {
+          "creditCardNumber": "5410654522672218",
+          "customerId": "913XXXXXXX",
+          "fullName": "Marc Carlo",
+          "firstName": "Marc",
+          "lastName": "Carlo",
+          "middleName": "david",
+          "dateOfBirth": "mm/dd/yy",
+          "ssn": "PQQ-ABC-DDD",
+          "citizenshipCountry": "AB",
+          "securityHint": "MOTHER_MAIDEN_NAME",
+          "securityIndicator": "ABC",
+          "encryptedSecurityWord": "",
+          "email": [
+            {
+              "emailAddress": "x@abc.com",
+              "emailId": "123",
+              "invalidEmailFlag": "Y/N",
+              "emailConsentIndicator": "SEND_EMAIL_ACCOUNT_PRODUCTS",
+              "emailRefusalFlag": "Y",
+              "emailLastUpdatedDate": "09/07/2014"
+            }
+          ],
+          "phone": [
+            {
+              "phoneNumber": "1234567890",
+              "phoneId": "1123",
+              "callConsentFlag": "Y/N",
+              "smsConsentFlag": "Y/N",
+              "phoneType": "LANDLINE",
+              "phoneLastUpdatedDate": "2014-02-13",
+              "trustedPhoneFlag": "Y/N",
+              "phoneCategoryType": "HOME"
+            }
+          ],
+          "address": [
+            {
+              "addressId": "123",
+              "addressLine1": "6460_LOSCOLINAS",
+              "addressLine2": "LOSCOLINAS",
+              "addressType": "MAILING",
+              "addressRollDownFlag": "Y/N",
+              "city": "Irving",
+              "state": "TX",
+              "addressLastUpdatedDate": "09/07/2014",
+              "postalCode": "75039",
+              "postalDeliveryPoint": "12",
+              "countryCode": "UNITED STATES"
+            }
+          ]
+        }
+      ],
+      "responseCode": "",
+      "responseText": ""
+    }
+  },
+  "accounts": [
+    {
+      "accountNumber": "5466160198147363",
+      "fimp": "3053",
+      "accountOpeningApplicationId": "210",
+      "componentClass": "9",
+      "bankAccountType": "74",
+      "componentStatus": "Opened",
+      "componentSeparatorCode": "01",
+      "branchNumber": "00966",
+      "bankingRelationshipGroup": "CITI_BANK",
+      "taxId": "666705697",
+      "governingState": "MD",
+      "bankingPackageNumber": "12345678987654321",
+      "bankingPackageType": "CitiOne",
+      "houseHoldNumber": "12345678987654321",
+      "cpbFlag": true,
+      "accountOpenDate": "20180815",
+      "tanType": "00",
+      "cinPrimaryComponentFlag": true,
+      "primaryComponentType": "PRIMARY_COMPONENT_BY_RULE",
+      "signerType": "CIN_MATCH",
+      "accountOwnerShipType": "INDIVIDUAL",
+      "promotionalRate": "900",
+      "promotionRateDuration": "1",
+      "promotionalExpiryDate": "06-25-2018"
+    }
+  ]
+}
+

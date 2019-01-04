@@ -73,7 +73,7 @@ public class AccountDaoImpl implements AccountDao {
 
         Table table = dynamoDB.getTable("Accounts");
 
-//        for(Account account: accounts){
+//        for(DemographicAccount account: accounts){
 //
 //            UpdateItemSpec updateItemSpec = new UpdateItemSpec()
 //                                            .withPrimaryKey("userAccountId",account.getUserAccountId())

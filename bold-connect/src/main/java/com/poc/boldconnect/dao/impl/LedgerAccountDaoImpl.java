@@ -76,7 +76,7 @@ public class LedgerAccountDaoImpl implements LedgerAccountDao {
 
         Table table = dynamoDB.getTable("Accounts");
 
-//        for(Account account: accounts){
+//        for(DemographicAccount account: accounts){
 //
 //            UpdateItemSpec updateItemSpec = new UpdateItemSpec()
 //                                            .withPrimaryKey("userAccountId",account.getUserAccountId())

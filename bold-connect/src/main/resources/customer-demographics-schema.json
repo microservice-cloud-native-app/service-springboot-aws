@@ -1,0 +1,1021 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "type": "object",
+      "properties": {
+        "bankCustomer": {
+          "type": "object",
+          "properties": {
+            "baseCin": {
+              "type": "string"
+            },
+            "cin": {
+              "type": "string"
+            },
+            "customerId": {
+              "type": "string"
+            },
+            "customerSinceDate": {
+              "type": "string"
+            },
+            "customerCategoryType": {
+              "type": "string"
+            },
+            "customerSegment": {
+              "type": "string"
+            },
+            "customerStatus": {
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "middleName": {
+              "type": "string"
+            },
+            "localName": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "suffix": {
+              "type": "string"
+            },
+            "maidenName": {
+              "type": "string"
+            },
+            "thirdPartyDataSharingIndicator": {
+              "type": "string"
+            },
+            "housingOwnershipType": {
+              "type": "string"
+            },
+            "annualIncome": {
+              "type": "string"
+            },
+            "annualIncomeUpdateDate": {
+              "type": "string"
+            },
+            "ipbCustomerFlag": {
+              "type": "boolean"
+            },
+            "gebCustomerFlag": {
+              "type": "boolean"
+            },
+            "promotionalOfferFlag": {
+              "type": "boolean"
+            },
+            "citiKYC": {
+              "type": "string"
+            },
+            "primarySIC": {
+              "type": "string"
+            },
+            "incomeDetails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "incomeAmount": {
+                      "type": "string"
+                    },
+                    "incomeSource": {
+                      "type": "string"
+                    },
+                    "incomeFrequencyCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "incomeAmount",
+                    "incomeSource",
+                    "incomeFrequencyCode"
+                  ]
+                }
+              ]
+            },
+            "identificationDocumentDetails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "documentIdType": {
+                      "type": "string"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    },
+                    "documentIssueCountry": {
+                      "type": "string"
+                    },
+                    "documentIdIssueDate": {
+                      "type": "string"
+                    },
+                    "documentIdExpiryDate": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "documentIdType",
+                    "documentId",
+                    "documentIssueCountry",
+                    "documentIdIssueDate",
+                    "documentIdExpiryDate"
+                  ]
+                }
+              ]
+            },
+            "customerPreferences": {
+              "type": "object",
+              "properties": {
+                "prefferedRmLanguageCode": {
+                  "type": "string"
+                },
+                "prefferedVoiceLanguageCode": {
+                  "type": "string"
+                },
+                "prefferedOthersLanguageCode": {
+                  "type": "string"
+                },
+                "prefferedMailLanguageCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "prefferedRmLanguageCode",
+                "prefferedVoiceLanguageCode",
+                "prefferedOthersLanguageCode",
+                "prefferedMailLanguageCode"
+              ]
+            },
+            "taxIdGroup": {
+              "type": "object",
+              "properties": {
+                "taxId": {
+                  "type": "string"
+                },
+                "taxIdType": {
+                  "type": "string"
+                },
+                "taxIdCertifyFlag": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "taxId",
+                "taxIdType",
+                "taxIdCertifyFlag"
+              ]
+            },
+            "email": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "emailAddress": {
+                      "type": "string"
+                    },
+                    "emailStatus": {
+                      "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                      "type": "string"
+                    },
+                    "preferenceType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "emailStatus",
+                    "lastUpdatedDate",
+                    "preferenceType"
+                  ]
+                }
+              ]
+            },
+            "phone": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "areaCode": {
+                      "type": "string"
+                    },
+                    "countryCallingCode": {
+                      "type": "string"
+                    },
+                    "exchangeNumber": {
+                      "type": "string"
+                    },
+                    "extension": {
+                      "type": "string"
+                    },
+                    "fullPhoneNumber": {
+                      "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                      "type": "string"
+                    },
+                    "localNumber": {
+                      "type": "string"
+                    },
+                    "phoneType": {
+                      "type": "string"
+                    },
+                    "verificationStatusIndicator": {
+                      "type": "string"
+                    },
+                    "preferenceType": {
+                      "type": "string"
+                    },
+                    "phoneConsent": {
+                      "type": "string"
+                    },
+                    "verificationCode": {
+                      "type": "string"
+                    },
+                    "unlistedPhoneIndicator": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "areaCode",
+                    "countryCallingCode",
+                    "exchangeNumber",
+                    "extension",
+                    "fullPhoneNumber",
+                    "lastUpdatedDate",
+                    "localNumber",
+                    "phoneType",
+                    "verificationStatusIndicator",
+                    "preferenceType",
+                    "phoneConsent",
+                    "verificationCode",
+                    "unlistedPhoneIndicator"
+                  ]
+                }
+              ]
+            },
+            "address": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "streetNumber": {
+                      "type": "string"
+                    },
+                    "streetName": {
+                      "type": "string"
+                    },
+                    "buildingName": {
+                      "type": "string"
+                    },
+                    "unitNumber": {
+                      "type": "string"
+                    },
+                    "addressType": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "countryName": {
+                      "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "addressId": {
+                      "type": "string"
+                    },
+                    "postalBoxNumber": {
+                      "type": "string"
+                    },
+                    "careOf": {
+                      "type": "string"
+                    },
+                    "internalLocationNumber": {
+                      "type": "string"
+                    },
+                    "startDate": {
+                      "type": "string"
+                    },
+                    "endDate": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "streetNumber",
+                    "streetName",
+                    "buildingName",
+                    "unitNumber",
+                    "addressType",
+                    "city",
+                    "countryCode",
+                    "countryName",
+                    "lastUpdatedDate",
+                    "postalCode",
+                    "state",
+                    "addressId",
+                    "postalBoxNumber",
+                    "careOf",
+                    "internalLocationNumber",
+                    "startDate",
+                    "endDate"
+                  ]
+                }
+              ]
+            },
+            "debitCardDetails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "cardPackageIndicator": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "cardPackageIndicator"
+                  ]
+                }
+              ]
+            },
+            "employmentDetails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "employmentStatus": {
+                      "type": "string"
+                    },
+                    "employerName": {
+                      "type": "string"
+                    },
+                    "employmentStartDate": {
+                      "type": "string"
+                    },
+                    "employmentEndDate": {
+                      "type": "string"
+                    },
+                    "annualBaseSalaryAmount": {
+                      "type": "string"
+                    },
+                    "jobDescription": {
+                      "type": "string"
+                    },
+                    "jobTitle": {
+                      "type": "string"
+                    },
+                    "globalEmployeeId": {
+                      "type": "string"
+                    },
+                    "employeeLevel": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "streetNumber": {
+                          "type": "string"
+                        },
+                        "streetName": {
+                          "type": "string"
+                        },
+                        "buildingName": {
+                          "type": "string"
+                        },
+                        "unitNumber": {
+                          "type": "string"
+                        },
+                        "addressType": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "countryCode": {
+                          "type": "string"
+                        },
+                        "countryName": {
+                          "type": "string"
+                        },
+                        "lastUpdatedDate": {
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "addressId": {
+                          "type": "string"
+                        },
+                        "postalBoxNumber": {
+                          "type": "string"
+                        },
+                        "careOf": {
+                          "type": "string"
+                        },
+                        "internalLocationNumber": {
+                          "type": "string"
+                        },
+                        "startDate": {
+                          "type": "string"
+                        },
+                        "endDate": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "streetNumber",
+                        "streetName",
+                        "buildingName",
+                        "unitNumber",
+                        "addressType",
+                        "city",
+                        "countryCode",
+                        "countryName",
+                        "lastUpdatedDate",
+                        "postalCode",
+                        "state",
+                        "addressId",
+                        "postalBoxNumber",
+                        "careOf",
+                        "internalLocationNumber",
+                        "startDate",
+                        "endDate"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "employmentStatus",
+                    "employerName",
+                    "employmentStartDate",
+                    "employmentEndDate",
+                    "annualBaseSalaryAmount",
+                    "jobDescription",
+                    "jobTitle",
+                    "globalEmployeeId",
+                    "employeeLevel",
+                    "address"
+                  ]
+                }
+              ]
+            },
+            "customerDemographics": {
+              "type": "object",
+              "properties": {
+                "citizenshipCountry": {
+                  "type": "string"
+                },
+                "citizenshipStatus": {
+                  "type": "string"
+                },
+                "dateOfBirth": {
+                  "type": "string"
+                },
+                "dependentCount": {
+                  "type": "string"
+                },
+                "accountPassword": {
+                  "type": "string"
+                },
+                "maritalStatus": {
+                  "type": "string"
+                },
+                "countryOfBirth": {
+                  "type": "string"
+                },
+                "seniorPublicFigureIndicator": {
+                  "type": "string"
+                },
+                "permanentResidencyFlag": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "citizenshipCountry",
+                "citizenshipStatus",
+                "dateOfBirth",
+                "dependentCount",
+                "accountPassword",
+                "maritalStatus",
+                "countryOfBirth",
+                "seniorPublicFigureIndicator",
+                "permanentResidencyFlag"
+              ]
+            },
+            "agent": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "agentId": {
+                      "type": "string"
+                    },
+                    "teamId": {
+                      "type": "string"
+                    },
+                    "teamName": {
+                      "type": "string"
+                    },
+                    "agentAvatar": {
+                      "type": "string"
+                    },
+                    "agentRole": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "type": "string"
+                    },
+                    "preferredName": {
+                      "type": "string"
+                    },
+                    "agentTypeCode": {
+                      "type": "string"
+                    },
+                    "designation": {
+                      "type": "string"
+                    },
+                    "biography": {
+                      "type": "string"
+                    },
+                    "biographyAvailableFlag": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "emailAddress": {
+                      "type": "string"
+                    },
+                    "subAgent": {
+                      "type": "object",
+                      "properties": {
+                        "agentType": {
+                          "type": "string"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "emailAddress": {
+                          "type": "string"
+                        },
+                        "aoSOEID": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "agentType",
+                        "firstName",
+                        "lastName",
+                        "emailAddress",
+                        "aoSOEID"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "agentId",
+                    "teamId",
+                    "teamName",
+                    "agentAvatar",
+                    "agentRole",
+                    "firstName",
+                    "lastName",
+                    "displayName",
+                    "preferredName",
+                    "agentTypeCode",
+                    "designation",
+                    "biography",
+                    "biographyAvailableFlag",
+                    "phoneNumber",
+                    "emailAddress",
+                    "subAgent"
+                  ]
+                }
+              ]
+            },
+            "responseCode": {
+              "type": "string"
+            },
+            "responseText": {
+              "type": "string"
+            },
+            "rmEngagementMode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "baseCin",
+            "cin",
+            "customerId",
+            "customerSinceDate",
+            "customerCategoryType",
+            "customerSegment",
+            "customerStatus",
+            "fullName",
+            "firstName",
+            "lastName",
+            "middleName",
+            "localName",
+            "title",
+            "suffix",
+            "maidenName",
+            "thirdPartyDataSharingIndicator",
+            "housingOwnershipType",
+            "annualIncome",
+            "annualIncomeUpdateDate",
+            "ipbCustomerFlag",
+            "gebCustomerFlag",
+            "promotionalOfferFlag",
+            "citiKYC",
+            "primarySIC",
+            "incomeDetails",
+            "identificationDocumentDetails",
+            "customerPreferences",
+            "taxIdGroup",
+            "email",
+            "phone",
+            "address",
+            "debitCardDetails",
+            "employmentDetails",
+            "customerDemographics",
+            "agent",
+            "responseCode",
+            "responseText",
+            "rmEngagementMode"
+          ]
+        },
+        "creditCardCustomer": {
+          "type": "object",
+          "properties": {
+            "cardsDetails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "creditCardNumber": {
+                      "type": "string"
+                    },
+                    "customerId": {
+                      "type": "string"
+                    },
+                    "fullName": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "middleName": {
+                      "type": "string"
+                    },
+                    "dateOfBirth": {
+                      "type": "string"
+                    },
+                    "ssn": {
+                      "type": "string"
+                    },
+                    "citizenshipCountry": {
+                      "type": "string"
+                    },
+                    "securityHint": {
+                      "type": "string"
+                    },
+                    "securityIndicator": {
+                      "type": "string"
+                    },
+                    "encryptedSecurityWord": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "emailAddress": {
+                              "type": "string"
+                            },
+                            "emailId": {
+                              "type": "string"
+                            },
+                            "invalidEmailFlag": {
+                              "type": "string"
+                            },
+                            "emailConsentIndicator": {
+                              "type": "string"
+                            },
+                            "emailRefusalFlag": {
+                              "type": "string"
+                            },
+                            "emailLastUpdatedDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "emailAddress",
+                            "emailId",
+                            "invalidEmailFlag",
+                            "emailConsentIndicator",
+                            "emailRefusalFlag",
+                            "emailLastUpdatedDate"
+                          ]
+                        }
+                      ]
+                    },
+                    "phone": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "phoneNumber": {
+                              "type": "string"
+                            },
+                            "phoneId": {
+                              "type": "string"
+                            },
+                            "callConsentFlag": {
+                              "type": "string"
+                            },
+                            "smsConsentFlag": {
+                              "type": "string"
+                            },
+                            "phoneType": {
+                              "type": "string"
+                            },
+                            "phoneLastUpdatedDate": {
+                              "type": "string"
+                            },
+                            "trustedPhoneFlag": {
+                              "type": "string"
+                            },
+                            "phoneCategoryType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "phoneNumber",
+                            "phoneId",
+                            "callConsentFlag",
+                            "smsConsentFlag",
+                            "phoneType",
+                            "phoneLastUpdatedDate",
+                            "trustedPhoneFlag",
+                            "phoneCategoryType"
+                          ]
+                        }
+                      ]
+                    },
+                    "address": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "addressId": {
+                              "type": "string"
+                            },
+                            "addressLine1": {
+                              "type": "string"
+                            },
+                            "addressLine2": {
+                              "type": "string"
+                            },
+                            "addressType": {
+                              "type": "string"
+                            },
+                            "addressRollDownFlag": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "string"
+                            },
+                            "addressLastUpdatedDate": {
+                              "type": "string"
+                            },
+                            "postalCode": {
+                              "type": "string"
+                            },
+                            "postalDeliveryPoint": {
+                              "type": "string"
+                            },
+                            "countryCode": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "addressId",
+                            "addressLine1",
+                            "addressLine2",
+                            "addressType",
+                            "addressRollDownFlag",
+                            "city",
+                            "state",
+                            "addressLastUpdatedDate",
+                            "postalCode",
+                            "postalDeliveryPoint",
+                            "countryCode"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "creditCardNumber",
+                    "customerId",
+                    "fullName",
+                    "firstName",
+                    "lastName",
+                    "middleName",
+                    "dateOfBirth",
+                    "ssn",
+                    "citizenshipCountry",
+                    "securityHint",
+                    "securityIndicator",
+                    "encryptedSecurityWord",
+                    "email",
+                    "phone",
+                    "address"
+                  ]
+                }
+              ]
+            },
+            "responseCode": {
+              "type": "string"
+            },
+            "responseText": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cardsDetails",
+            "responseCode",
+            "responseText"
+          ]
+        }
+      },
+      "required": [
+        "bankCustomer",
+        "creditCardCustomer"
+      ]
+    },
+    "accounts": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "accountNumber": {
+              "type": "string"
+            },
+            "fimp": {
+              "type": "string"
+            },
+            "accountOpeningApplicationId": {
+              "type": "string"
+            },
+            "componentClass": {
+              "type": "string"
+            },
+            "bankAccountType": {
+              "type": "string"
+            },
+            "componentStatus": {
+              "type": "string"
+            },
+            "componentSeparatorCode": {
+              "type": "string"
+            },
+            "branchNumber": {
+              "type": "string"
+            },
+            "bankingRelationshipGroup": {
+              "type": "string"
+            },
+            "taxId": {
+              "type": "string"
+            },
+            "governingState": {
+              "type": "string"
+            },
+            "bankingPackageNumber": {
+              "type": "string"
+            },
+            "bankingPackageType": {
+              "type": "string"
+            },
+            "houseHoldNumber": {
+              "type": "string"
+            },
+            "cpbFlag": {
+              "type": "boolean"
+            },
+            "accountOpenDate": {
+              "type": "string"
+            },
+            "tanType": {
+              "type": "string"
+            },
+            "cinPrimaryComponentFlag": {
+              "type": "boolean"
+            },
+            "primaryComponentType": {
+              "type": "string"
+            },
+            "signerType": {
+              "type": "string"
+            },
+            "accountOwnerShipType": {
+              "type": "string"
+            },
+            "promotionalRate": {
+              "type": "string"
+            },
+            "promotionRateDuration": {
+              "type": "string"
+            },
+            "promotionalExpiryDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accountNumber",
+            "fimp",
+            "accountOpeningApplicationId",
+            "componentClass",
+            "bankAccountType",
+            "componentStatus",
+            "componentSeparatorCode",
+            "branchNumber",
+            "bankingRelationshipGroup",
+            "taxId",
+            "governingState",
+            "bankingPackageNumber",
+            "bankingPackageType",
+            "houseHoldNumber",
+            "cpbFlag",
+            "accountOpenDate",
+            "tanType",
+            "cinPrimaryComponentFlag",
+            "primaryComponentType",
+            "signerType",
+            "accountOwnerShipType",
+            "promotionalRate",
+            "promotionRateDuration",
+            "promotionalExpiryDate"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "customer",
+    "accounts"
+  ]
+}
