@@ -86,6 +86,17 @@
             <artifactId>commons-io</artifactId>
             <version>RELEASE</version>
         </dependency>
+            <!-- Start Added for Java code generation -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <!-- End -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
 
         <!--<dependency>-->
             <!--<groupId>com.amazonaws</groupId>-->
@@ -138,6 +149,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.jsonschema2pojo</groupId>-->
+                <!--<artifactId>jsonschema2pojo-maven-plugin</artifactId>-->
+                <!--<version>0.4.34</version>-->
+                <!--<configuration>-->
+                    <!--<sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>-->
+                    <!--<targetPackage>com.poc.boldconnect.model.domain</targetPackage>-->
+                    <!--<sourceType>json</sourceType>-->
+                    <!--<useCommonsLang3>true</useCommonsLang3>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
     <!--<profiles>-->

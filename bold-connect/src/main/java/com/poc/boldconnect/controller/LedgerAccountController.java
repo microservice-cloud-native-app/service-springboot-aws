@@ -1,28 +1,23 @@
 package com.poc.boldconnect.controller;
 
-import com.poc.boldconnect.dao.LedgerAccountDao;
 import com.poc.boldconnect.delegate.LegerAccountDelegate;
 import com.poc.boldconnect.exception.ClientSideException;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.request.AccountRequest;
-import com.poc.boldconnect.model.response.AccountResponse;
+import com.poc.boldconnect.model.response.ErrorResponse;
 import com.poc.boldconnect.model.response.PersistAccountResponse;
-import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
-
+import com.poc.boldconnect.util.CommonUtils;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import com.poc.boldconnect.model.response.ErrorResponse;
-import com.poc.boldconnect.util.CommonUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;

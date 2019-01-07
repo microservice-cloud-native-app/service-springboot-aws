@@ -3,20 +3,22 @@ package com.poc.boldconnect.dao.impl;
 import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.PutItemSpec;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
-import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.poc.boldconnect.dao.AccountDao;
 import com.poc.boldconnect.model.domain.Account;
-import com.poc.boldconnect.util.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 
-import static com.poc.boldconnect.util.CommonUtils.*;
+import static com.poc.boldconnect.util.CommonUtils.convertJSONToObject;
+import static com.poc.boldconnect.util.CommonUtils.formatDateTime;
 
 @Repository
 public class AccountDaoImpl implements AccountDao {
@@ -73,7 +75,7 @@ public class AccountDaoImpl implements AccountDao {
 
         Table table = dynamoDB.getTable("Accounts");
 
-//        for(Account account: accounts){
+//        for(DemographicAccount account: accounts){
 //
 //            UpdateItemSpec updateItemSpec = new UpdateItemSpec()
 //                                            .withPrimaryKey("userAccountId",account.getUserAccountId())

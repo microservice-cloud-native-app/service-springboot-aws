@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -33,7 +32,7 @@ public class Transaction {
 	@ApiModelProperty(value = "account id associated with the transaction", required = true)
 	private String accountId;
 
-	@ApiModelProperty(value = "Account Category Type of the transaction", required = true)
+	@ApiModelProperty(value = "DemographicAccount Category Type of the transaction", required = true)
 	private String accountCategoryType;
 
 	@ApiModelProperty(value = "The transaction amount", required = true)

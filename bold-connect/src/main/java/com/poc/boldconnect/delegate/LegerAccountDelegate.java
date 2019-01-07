@@ -1,6 +1,5 @@
 package com.poc.boldconnect.delegate;
 
-import com.poc.boldconnect.controller.LedgerTransactionController;
 import com.poc.boldconnect.dao.LedgerAccountDao;
 import com.poc.boldconnect.model.domain.Account;
 import com.poc.boldconnect.model.response.AccountResponse;

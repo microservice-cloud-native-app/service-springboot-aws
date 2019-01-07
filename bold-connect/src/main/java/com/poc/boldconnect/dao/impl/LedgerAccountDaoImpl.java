@@ -12,9 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 
-import static com.poc.boldconnect.util.CommonUtils.*;
+import static com.poc.boldconnect.util.CommonUtils.convertJSONToObject;
+import static com.poc.boldconnect.util.CommonUtils.formatDateTime;
 
 @Repository
 public class LedgerAccountDaoImpl implements LedgerAccountDao {
@@ -76,7 +80,7 @@ public class LedgerAccountDaoImpl implements LedgerAccountDao {
 
         Table table = dynamoDB.getTable("Accounts");
 
-//        for(Account account: accounts){
+//        for(DemographicAccount account: accounts){
 //
 //            UpdateItemSpec updateItemSpec = new UpdateItemSpec()
 //                                            .withPrimaryKey("userAccountId",account.getUserAccountId())
