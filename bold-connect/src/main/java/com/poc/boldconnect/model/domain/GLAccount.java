@@ -24,7 +24,7 @@ public class GLAccount {
     private String name;
 
     @ApiModelProperty(notes = "Reference to optional custom image selected by the customer for this card")
-    @JsonProperty("Image_url")
+    @JsonProperty("image_url")
      private String image_url;
 
     @ApiModelProperty(notes ="The last four digits of the card number.")
