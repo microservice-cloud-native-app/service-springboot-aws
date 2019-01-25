@@ -24,7 +24,8 @@ public class GLAccountServiceImpl implements GLAccountService {
     private static Logger LOG = LoggerFactory.getLogger(GLAccountServiceImpl.class);
     protected static final String GLAccountServiceUrl = "https://api.poc.greenlighttest.com";
     protected static final String resource = "/accounts";
-    protected static final String params = "?correlation_id=abc123";
+    protected static final String CORRELATION_ID_PARAM = "?correlation_id=";
+    protected static final String POC_CORRELATION_ID = "abc123";
     protected static final String API_KEY = "x-api-key";
     protected static final String API_KEY_VALUE = "CXOw9Qoxni2rC0FsRrYye8r2sN5SSJXn9Ya8jwxM";
     protected static final String CONTENT_TYPE = "Content-Type";
@@ -33,19 +34,41 @@ public class GLAccountServiceImpl implements GLAccountService {
     @Autowired
     private RestTemplate restTemplate;
     
-    protected String getFullUrl() {
-    	return GLAccountServiceUrl + resource + params;
+    protected String getCorrelationUrl(String correlationId) {
+    	return GLAccountServiceUrl + resource + CORRELATION_ID_PARAM + correlationId;
+    }
+
+    protected String getGLAccountIdUrl(String greenlightAccountId) {
+    	return GLAccountServiceUrl + resource + "/" + greenlightAccountId;
+    }
+    
+    /** Return the correlationId (pseudo user id that is shared with Greenlight that corresponds to this user
+     * In the POC, Greenlight has not yet implemented correlation id, so we just mock one
+     * @param userAcctId
+     * @return
+     */
+    protected String getCorrelationId(String userAcctId) {
+    	return POC_CORRELATION_ID; 
     }
 
 	@Override
-	public GLAccounts getAccounts(String userAcctId, HttpHeaders responseHeaders) {
+	public GLAccounts getAccounts(String userAcctId, String greenlightAccountId, HttpHeaders responseHeaders) {
+		String url;
+		if(greenlightAccountId == null || greenlightAccountId.isEmpty()) {
+			url = getCorrelationUrl(getCorrelationId(userAcctId));
+		} else {
+			url = getGLAccountIdUrl(greenlightAccountId);
+		}
+		responseHeaders.set(API_KEY, API_KEY_VALUE);
+		responseHeaders.set(CONTENT_TYPE, CONTENT_TYPE_VALUE);
+        return callGlApi(url,responseHeaders);
+	}
+	
+	protected GLAccounts callGlApi(String url, HttpHeaders responseHeaders) {
 	    try {
-			responseHeaders.set(API_KEY, API_KEY_VALUE);
-			responseHeaders.set(CONTENT_TYPE, CONTENT_TYPE_VALUE);
 		    HttpEntity<?> entity = new HttpEntity<>(null, responseHeaders);
-	        ResponseEntity<GLAccount[]> responseEntity =
-	                restTemplate.exchange(getFullUrl(), HttpMethod.GET, entity, GLAccount[].class);
-	        GLAccount[] accountArray= responseEntity.getBody();
+	        ResponseEntity<GLAccount[]> response = restTemplate.exchange(url, HttpMethod.GET, entity, GLAccount[].class);
+	        GLAccount[] accountArray= response.getBody();
 	        GLAccounts answer = new GLAccounts();
 	        answer.setAccounts(Arrays.asList(accountArray));
 	        return answer;

@@ -39,13 +39,14 @@ public class GLAccountController {
     }
 
     @ApiOperation(value = "Lookup an accounts", nickname = "accountsLookup", response = GLAccount.class,
-            notes = "accounts data response ")
+            notes = "Returns GL Account data via an API call to Greenlight. Can be mocked to avoid the API call using the 'mock' parameter.")
     @ApiResponses({ @ApiResponse(code = 200, message = "OK", response = GLAccountResponse.class), @ApiResponse(code = 404, message = "NOT_FOUND", response = ErrorResponse.class), })
     @RequestMapping(value = RESOURCE_NAME , method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<?> lookupAccounts(
-    		@ApiParam(name = "uuid", value = "A 128 bit universally unique identifier (UUID) that you generate for every request and is used for tracking.", defaultValue = "f4b14e1c-0d80-11e7-93ae-92361f002671")@RequestHeader(value = "uuid", required = true) String uuid,
-    		@ApiParam(name = "userAccountId", value = "The user account id for which you are looking up Greenlight accounts") @RequestHeader(value = "userAccountId", required = true) String userAccountId,
-    		@ApiParam(name = "mock", value = "Indicate whether you want to go out to the Greenlight api, or want a mocked value", defaultValue = "false")@RequestHeader(value = "mock", required = false) String mock)
+    		@ApiParam(name = "uuid", required=true, value = "A 128 bit universally unique identifier (UUID) that you generate for every request and is used for tracking.", defaultValue = "f4b14e1c-0d80-11e7-93ae-92361f002671")@RequestHeader(value = "uuid", required = true) String uuid,
+    		@ApiParam(name = "userAccountId", required=true, value = "The user account for which you are looking up Greenlight accounts") @RequestHeader(value = "userAccountId", required = true) String userAccountId,
+    		@ApiParam(name = "mock", required=false, value = "Indicate whether you want to go out to the Greenlight api, or want a mocked value", defaultValue = "false")@RequestHeader(value = "mock", required = false) String mock,
+			@ApiParam(name = "greenlightAccountId", required=false, value = "The greenlight account for which you want data. If empty, this will return all greenlight accounts for this userAccountId", defaultValue="48c5b071-398e-4fc6-a900-d2d73e09f778") @RequestHeader(value = "greenlightAccountId", required = false) String greenlightAccountId)
     {
         LOG.debug("---  Beginning Action ---");
 
@@ -61,7 +62,7 @@ public class GLAccountController {
             throw new ClientSideException("userAcctNumber is null or empty in header");
         }
 
-        return ledgerGLAccountDelegate.fetchAccounts(userAccountId,mockValue,responseHeaders);
+        return ledgerGLAccountDelegate.fetchAccounts(userAccountId, greenlightAccountId, mockValue,responseHeaders);
     }
 
 }

@@ -22,16 +22,16 @@ public class LedgerGLAccountDelegate {
     }
 	
 	
-    public ResponseEntity<?> fetchAccounts(String userAcctId, boolean mock, HttpHeaders responseHeaders) {
-    	GLAccounts accounts = getAccounts(userAcctId, mock, responseHeaders);
+    public ResponseEntity<?> fetchAccounts(String userAcctId, String greenlightAccountId, boolean mock, HttpHeaders responseHeaders) {
+    	GLAccounts accounts = getAccounts(userAcctId, greenlightAccountId, mock, responseHeaders);
     	return getResponse(accounts, responseHeaders);
     }
     
-    protected GLAccounts getAccounts(String userAcctId, boolean mock, HttpHeaders responseHeaders) {
+    protected GLAccounts getAccounts(String userAcctId, String greenlightAccountId, boolean mock, HttpHeaders responseHeaders) {
     	if(mock) {
-    		return getMockService().getAccounts(userAcctId, responseHeaders);
+    		return getMockService().getAccounts(userAcctId, greenlightAccountId, responseHeaders);
     	} else {
-    		return getGlAccountService().getAccounts(userAcctId, responseHeaders);
+    		return getGlAccountService().getAccounts(userAcctId, greenlightAccountId, responseHeaders);
     	}
     }
     
