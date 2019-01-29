@@ -6,11 +6,11 @@
 		    "name": "Subu",
 		    "image_url": "https://api.poc.greenlighttest.com/acct_image/48c5b071-398e-4fc6-a900-d2d73e09f778",
 		    "acct_last_four": "8245",
-		    "available_balance": 14057,
-		    "spend": 11357,
-		    "save": 2200,
-		    "give": 500,
-		    "earn": 200
+		    "available_balance": 33474,
+		    "spend": 10381,
+		    "save": 12370,
+		    "give": 8723,
+		    "earn": 2000
 	  	}
 	]
 }

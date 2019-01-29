@@ -51,7 +51,7 @@ public class GLAccountController {
         LOG.debug("---  Beginning Action ---");
 
         HttpHeaders responseHeaders = new HttpHeaders();
-        boolean mockValue = true;
+        boolean mockValue = false;
         if(mock != null) {
         	mockValue = mock.equalsIgnoreCase("true");
         }
@@ -61,7 +61,7 @@ public class GLAccountController {
         if(userAccountId==null || userAccountId.isEmpty()){
             throw new ClientSideException("userAcctNumber is null or empty in header");
         }
-
+        LOG.debug("mock: "+ mockValue + ", user account id: " + userAccountId );
         return ledgerGLAccountDelegate.fetchAccounts(userAccountId, greenlightAccountId, mockValue,responseHeaders);
     }
 

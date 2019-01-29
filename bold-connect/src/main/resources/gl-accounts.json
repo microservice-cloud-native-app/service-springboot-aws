@@ -2,26 +2,26 @@
   "accounts": 
   	[
 	  	{
-		    "id": "0048c5b071-398e-4fc6-a900-d2d73e09f778",
+		    "id": "48c5b071-398e-4fc6-a900-d2d73e09f778",
 		    "name": "Subu",
 		    "image_url": "https://api.poc.greenlighttest.com/acct_image/48c5b071-398e-4fc6-a900-d2d73e09f778",
-		    "acct_last_four": "8200",
-		    "available_balance": 14057,
-		    "spend": 11357,
-		    "save": 2200,
-		    "give": 500,
-		    "earn": 200
+		    "acct_last_four": "8245",
+		    "available_balance": 33474,
+		    "spend": 10381,
+		    "save": 12370,
+		    "give": 8723,
+		    "earn": 2000
 	  	},
 	  	{
 		    "id": "1148c5b071-398e-4fc6-a900-d2d73e09f778",
 		    "name": "Amit",
 		    "image_url": "https://api.poc.greenlighttest.com/acct_image/48c5b071-398e-4fc6-a900-d2d73e09f778",
 		    "acct_last_four": "8245",
-		    "available_balance": 140000,
-		    "spend": 113000,
-		    "save": 22000,
-		    "give": 5000,
-		    "earn": 2000
+		    "available_balance": 14000,
+		    "spend": 11300,
+		    "save": 2000,
+		    "give": 500,
+		    "earn": 200
 	  	}
 	]
 }
