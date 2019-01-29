@@ -15,9 +15,9 @@ info:
 logging:
   level:
     ROOT: INFO
-    com.poc.boldconnect: INFO
+    com.poc.boldconnect: DEBUG
     org.springframework:
-      web: ERROR
+      web: DEBUG
       beans: ERROR
       boot: ERROR
     com.netflix:
